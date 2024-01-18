@@ -1,10 +1,19 @@
-<h1>Les articles</h1>
+<?php
+
+use Core\Session\Session;
+
+?>
+<h1>Un article</h1>
+
+
 
 
 <div class="form-control">
 
     <h2>Titre : <?= $article->getTitle() ?></h2>
     <p>Contenu : <?= $article->getContent() ?></p>
+    <h6>Author : <?= $article->getAuthor()->getUsername() ?></h6>
+
 
     <a href="?type=article&action=index" class="btn btn-secondary">Retour</a>
     <a href="?type=article&action=update&id=<?= $article->getId() ?>" class="btn btn-warning">Editer</a>
@@ -16,9 +25,16 @@
     <?php foreach ($article->getComments() as $comment): ?>
 
         <p><strong><?= $comment->getContent() ?></strong></p>
-        <h6>author: <?= $article->getAuthor()->getUsername() ?></h6>
+        <h6>author: <?= Session::user()['authenticator'] ?></h6>
         <a href="?type=comment&action=delete&id=<?= $comment->getId() ?>" class="btn btn-danger">Supprimer</a>
         <a href="?type=comment&action=update&id=<?= $comment->getId() ?>" class="btn btn-warning">Editer</a>
+
+        <?php
+
+
+
+        ?>
+
     <?php endforeach; ?>
 
 

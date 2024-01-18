@@ -15,6 +15,8 @@ class ArticleController extends \Core\Controller\Controller
     {
 
 
+
+
         $articleRepository = new ArticleRepository();
         // $this->addFlash("coucou tu es sur la page des articles" ,"danger");
 
@@ -40,6 +42,13 @@ class ArticleController extends \Core\Controller\Controller
 
         if(!$article){
             return  $this->redirect();
+        }
+
+        var_dump($this->getUser()->getId());
+        var_dump($article->getAuthor()->getId());
+        if ($this->getUser()->getId() == $article->getAuthor()->getId())
+        {
+            echo "modifiable";
         }
 
 
@@ -174,8 +183,11 @@ class ArticleController extends \Core\Controller\Controller
             return  $this->redirect();
         }
 
+        //verification utilisateur
+
+
         $this->addFlash("article bien supprimé bravo");
-        $articleRepository->delete($article);
+//        $articleRepository->delete($article);
 
         return  $this->redirect("?type=article&action=index");
 

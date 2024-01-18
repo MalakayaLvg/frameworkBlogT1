@@ -8,7 +8,7 @@
     </div>
 
     <div>
-        <input type="password" name="password" id="" class="form-control" placeholder="password">
+        <input type="text" name="password" id="" class="form-control" placeholder="password">
     </div>
 
     <div>

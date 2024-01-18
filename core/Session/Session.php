@@ -13,7 +13,8 @@ class Session
             session_start();
         }
     }
-    public static function get($index){
+    public static function get($index)
+    {
 
             if(isset($_SESSION[$index])){
                 return $_SESSION[$index];

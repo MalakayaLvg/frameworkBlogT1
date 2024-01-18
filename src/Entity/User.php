@@ -1,5 +1,9 @@
 <?php
 
+// User database:
+// oslynx,motdepasse
+// test,mdptest
+
 namespace App\Entity;
 use App\Repository\UserRepository;
 use Core\Attributes\Table;

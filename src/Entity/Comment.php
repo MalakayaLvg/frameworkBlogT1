@@ -54,4 +54,9 @@ class Comment
         $this->article_id = $article_id;
     }
 
+    public function getAuthor()
+    {
+
+    }
+
 }

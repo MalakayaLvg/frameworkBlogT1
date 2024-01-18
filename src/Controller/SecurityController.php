@@ -75,11 +75,11 @@ class SecurityController extends Controller
                 return $this->redirect("?type=security&action=signIn");
             }
 
-//            if(!$user->logIn($unencryptedPassword))
-//            {
-//                $this->addFlash("mauvais mot de passe, ".$user->getUsername(), "danger");
-//                return $this->redirect("?type=security&action=signIn");
-//            }
+            if(!$user->logIn($unencryptedPassword))
+            {
+                $this->addFlash("mauvais mot de passe, ".$user->getUsername(), "danger");
+                return $this->redirect("?type=security&action=signIn");
+            }
 
 
             $this->addFlash("Bienvenue ".$user->getUsername() ,"success");

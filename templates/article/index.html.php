@@ -1,5 +1,7 @@
 <h1>Les articles</h1>
 
+<a href="?type=article&action=create" class="btn btn-success">Create</a>
+
 <?php foreach ($articles as $article) : ?>
 
     <div class="form-control">
