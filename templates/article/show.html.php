@@ -16,8 +16,12 @@ use Core\Session\Session;
 
 
     <a href="?type=article&action=index" class="btn btn-secondary">Retour</a>
-    <a href="?type=article&action=update&id=<?= $article->getId() ?>" class="btn btn-warning">Editer</a>
-    <a href="?type=article&action=delete&id=<?= $article->getId() ?>" class="btn btn-danger">Supprimer</a>
+    <?php if(Session::userConnected()){  ?>
+        <?php if(Session::user() == $article->getAuthor()){ ?>
+            <a href="?type=article&action=update&id=<?= $article->getId() ?>" class="btn btn-warning">Editer</a>
+            <a href="?type=article&action=delete&id=<?= $article->getId() ?>" class="btn btn-danger">Supprimer</a>
+        <?php } ?>
+    <?php } ?>
 
 </div>
 
@@ -26,6 +30,7 @@ use Core\Session\Session;
 
         <p><strong><?= $comment->getContent() ?></strong></p>
         <h6>author: <?= Session::user()['authenticator'] ?></h6>
+
         <a href="?type=comment&action=delete&id=<?= $comment->getId() ?>" class="btn btn-danger">Supprimer</a>
         <a href="?type=comment&action=update&id=<?= $comment->getId() ?>" class="btn btn-warning">Editer</a>
 

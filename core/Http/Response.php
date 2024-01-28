@@ -13,6 +13,12 @@ class Response
          return $this;
     }
 
+    public function renderError($nomDeTemplate)
+    {
+        View::render($nomDeTemplate);
+        return $this;
+    }
+
 
     public function redirect(string $route = null)
     {

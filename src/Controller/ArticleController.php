@@ -184,6 +184,12 @@ class ArticleController extends \Core\Controller\Controller
         }
 
         //verification utilisateur
+        if($article->getAuthor() !== $this->getUser())
+        {
+            $this->addFlash("Ce n'est pas ton article, suppression impossible");
+
+            return $this->redirect("?type=article&action=index");
+        }
 
 
         $this->addFlash("article bien supprimé bravo");

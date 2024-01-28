@@ -18,6 +18,13 @@ class User extends UserAuthentication
     protected string $username;
     protected string $password;
 
+    private string $roles = "";
+
+    public function getRoles()
+    {
+
+    }
+
     public function getId(): int
     {
         return $this->id;
